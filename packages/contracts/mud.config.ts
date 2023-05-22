@@ -7,6 +7,9 @@ export default mudConfig({
       schema: "uint32",
     },
     Dog: {
+      keySchema: {
+        dogId: "bytes32",
+      },
       schema: {
         owner: "address",
         name: "string",

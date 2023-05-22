@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 import { System } from "@latticexyz/world/src/System.sol";
-import { Dog, DogTableId } from "../codegen/tables/Dog.sol";
+import { Dog } from "../codegen/tables/Dog.sol";
 
 contract MySystem is System {
   function addEntry(string memory name, string memory color) public returns (bytes32) {

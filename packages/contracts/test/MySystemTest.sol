@@ -24,7 +24,7 @@ contract MySystemTest is MudV2Test {
   }
 
   function testAddEntry() public {
-    bytes memory key = abi.encodePacked(world.addEntry("bob", "blue"));
+    bytes32 key = world.addEntry("bob", "blue");
 
     string memory name = Dog.getName(world, key);
     string memory color = Dog.getColor(world, key);
