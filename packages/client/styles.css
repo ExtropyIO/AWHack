@@ -1,0 +1,52 @@
+:root {
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+canvas {
+	display: flex;
+	border: solid black;
+	justify-content: center;
+	align-items: center;
+	width: 400px;
+	height: 400px;
+	cursor: pointer;
+}
+
+.tools {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	margin-top: 10px;
+}
+
+.tools .button {
+	align-self: center;
+	cursor: pointer;
+	margin: 0 4px;
+}
+
+.tools .color-field {
+	height: 40px;
+	width: 40px;
+	display: inline-block;
+	cursor: pointer;
+	box-sizing: border-box;
+	margin: 0 8px;
+}
+
+.color-picker {
+	height: 40px;
+	width: 40px;
+}
