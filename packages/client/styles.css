@@ -13,6 +13,7 @@ body {
 
 .canvas {
 	border: 1px solid black;
+	/* background: black; */
 	/* height: 280px;
 	width: 280px; */
 	padding: 2px;

@@ -9,19 +9,59 @@ class DrawingApp {
 
 	constructor() {
 		let canvas = document.getElementById('canvas') as HTMLCanvasElement;
+		let context = canvas.getContext('2d');
 		canvas.height = 280;
 		canvas.width = 280;
 
-		let context = canvas.getContext('2d');
-		context.fillStyle = 'black';
-		context.fillRect(0, 0, canvas.width, canvas.height);
-		context.lineCap = 'round';
-		context.lineJoin = 'round';
-		context.strokeStyle = 'red';
-		context.lineWidth = 20;
-
-		this.canvas = canvas;
 		this.context = context;
+		this.canvas = canvas;
+
+		this.context.fillStyle = 'black';
+		this.context.fillRect(0, 0, canvas.width, canvas.height);
+		this.context.lineCap = 'round';
+		this.context.lineJoin = 'round';
+		this.context.strokeStyle = 'white';
+		this.context.lineWidth = 20;
+
+		function sleep(ms = 0) {
+			return new Promise((resolve) => setTimeout(resolve, ms));
+		}
+		async function updateAll() {
+			console.log('game is running');
+			await sleep(1000);
+			window.requestAnimationFrame(updateAll);
+		}
+
+		window.onload = () => {
+			window.requestAnimationFrame(updateAll);
+		};
+
+		function array28() {
+			let array = [];
+
+			for (let i = 0; i < 28; i++) {
+				for (let j = 0; j < 28; j++) {
+					let index = ((j * (j * i)) % 28) + i;
+					if (i % 2 === 0) {
+						array[index] = 1;
+					} else {
+						array[index] = 0;
+					}
+				}
+			}
+			return array;
+		}
+
+		const tileW = 10;
+		const tileH = 10;
+
+		const gridRows = 28;
+		const gridCols = 28;
+
+		// let map = array28().map(array28);
+		let map = array28();
+
+		console.log(map);
 
 		this.redraw();
 		this.createUserEvents();
@@ -71,6 +111,8 @@ class DrawingApp {
 
 	private clearCanvas() {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		this.context.fillStyle = 'black';
+		this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
 		this.clickX = [];
 		this.clickY = [];
 		this.clickDrag = [];
@@ -112,9 +154,9 @@ class DrawingApp {
 			: (e as MouseEvent).pageY;
 		mouseX -= this.canvas.offsetLeft;
 		mouseY -= this.canvas.offsetTop;
-
 		if (this.paint) {
 			this.addClick(mouseX, mouseY, true);
+			console.log([Math.floor(mouseX / 10), Math.floor(mouseY / 10)]);
 			this.redraw();
 		}
 
