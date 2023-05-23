@@ -5,6 +5,8 @@ export class DrawingApp {
 	private addPoint: (x: number, y: number) => void;
 	public imageData: string;
 	public matrixOutput: Array<Array<number>>;
+	public output: HTMLElement;
+	public initial: Array<Array<number>>;
 
 	private clickX: number[] = [];
 	private clickY: number[] = [];
@@ -12,6 +14,8 @@ export class DrawingApp {
 
 	constructor(addPoint: (x: number, y: number) => void) {
 		let canvas = document.getElementById('canvas') as HTMLCanvasElement;
+		let output = document.getElementById('matrix') as HTMLElement;
+		this.output = output;
 		let context = canvas.getContext('2d');
 		canvas.height = 280;
 		canvas.width = 280;
@@ -47,7 +51,9 @@ export class DrawingApp {
 		}
 
 		let map = array28().map(array28);
+		this.initial = map;
 		this.matrixOutput = map;
+		this.output.innerHTML = String(map);
 
 		this.redraw();
 		this.createUserEvents();
@@ -95,6 +101,7 @@ export class DrawingApp {
 	}
 
 	private clearCanvas() {
+		this.output.innerHTML = String(this.initial);
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		this.context.fillStyle = 'black';
 		this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -145,8 +152,8 @@ export class DrawingApp {
 		if (this.paint) {
 			this.addClick(mouseX, mouseY, true);
 			this.addPoint(Math.floor(mouseX / 10), Math.floor(mouseY / 10));
-			this.matrixOutput[Math.floor(mouseX / 10)][Math.floor(mouseY / 10)] =
-				(mouseX / 10 + mouseY / 10) ** -1;
+			this.matrixOutput[Math.floor(mouseX / 10)][Math.floor(mouseY / 10)] += 1;
+			this.output.innerHTML = String(this.matrixOutput);
 			console.log(this.matrixOutput);
 			this.redraw();
 		}

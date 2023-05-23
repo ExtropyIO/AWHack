@@ -7,39 +7,88 @@
 		<title>AWHack Matrix</title>
 	</head>
 	<body>
-		<script type="module" src="/src/index.ts"></script>
-		<!-- <div>Pad <span id="counter">0</span></div> -->
-		<div>Current Point <span id="coordinates">[0,0]</span></div>
-		<!-- <button onclick="window.increment()">Increment</button> -->
-		<div class="field">
-			<canvas id="canvas" class="canvas"></canvas>
-			<div class="tools">
-				<button type="button" class="button">Undo</button>
-				<button type="button" class="button" id="clear">Clear</button>
-				<div
-					onclick="change_color(this)"
-					class="color-field"
-					style="background: red"
-				></div>
-				<div
-					onclick="change_color(this)"
-					class="color-field"
-					style="background: blue"
-				></div>
-				<div
-					onclick="change_color(this)"
-					class="color-field"
-					style="background: green"
-				></div>
-				<div
-					onclick="change_color(this)"
-					class="color-field"
-					style="background: yellow"
-				></div>
-				<a href="" download class="download">download</a>
+		<!-- Matrix animation -->
+		<div class="animation">
+			<div class="letter l00 t200"><div></div></div>
+			<div class="letter l10 t500"><div></div></div>
+			<div class="letter l20 t180"><div></div></div>
+			<div class="letter l30 t700"><div></div></div>
+			<div class="letter l40 t800"><div></div></div>
+			<div class="letter l50 t900"><div></div></div>
+			<div class="letter l60 t300"><div></div></div>
+			<div class="letter l70 t400"><div></div></div>
+			<div class="letter l80 t320"><div></div></div>
+			<div class="letter l90 t190"><div></div></div>
+			<div class="letter l100 t520"><div></div></div>
+			<div class="letter l05 t380 big"><div></div></div>
+			<div class="letter l15 t400 big"><div></div></div>
+			<div class="letter l25 t600 big"><div></div></div>
+			<div class="letter l35 t650 big"><div></div></div>
+			<div class="letter l45 t290 big"><div></div></div>
+			<div class="letter l55 t530 big"><div></div></div>
+			<div class="letter l65 t420 big"><div></div></div>
+			<div class="letter l75 t900 big"><div></div></div>
+			<div class="letter l85 t200 big"><div></div></div>
+			<div class="letter l95 t180 big"><div></div></div>
 
-				<input type="color" class="color-picker" />
-				<input type="range" min="1" max="100" class="pen-range" />
+			<div class="letter l00 t200 d2"><div></div></div>
+			<div class="letter l10 t500 d2"><div></div></div>
+			<div class="letter l20 t180 d2"><div></div></div>
+			<div class="letter l30 t700 d2"><div></div></div>
+			<div class="letter l40 t800 d2"><div></div></div>
+			<div class="letter l50 t900 d2"><div></div></div>
+			<div class="letter l60 t300 d2"><div></div></div>
+			<div class="letter l70 t400 d2"><div></div></div>
+			<div class="letter l80 t320 d2"><div></div></div>
+			<div class="letter l90 t190 d2"><div></div></div>
+			<div class="letter l100 t520 d2"><div></div></div>
+			<div class="letter l05 t380 big d2"><div></div></div>
+			<div class="letter l15 t400 big d2"><div></div></div>
+			<div class="letter l25 t600 big d2"><div></div></div>
+			<div class="letter l35 t650 big d2"><div></div></div>
+			<div class="letter l45 t290 big d2"><div></div></div>
+			<div class="letter l55 t530 big d2"><div></div></div>
+			<div class="letter l65 t420 big d2"><div></div></div>
+			<div class="letter l75 t900 big d2"><div></div></div>
+			<div class="letter l85 t200 big d2"><div></div></div>
+			<div class="letter l95 t180 big d2"><div></div></div>
+		</div>
+		<div class="app">
+			<h1>Autonomous Learning</h1>
+			<script type="module" src="/src/index.ts"></script>
+			<!-- <div>Pad <span id="counter">0</span></div> -->
+			<div>Current Point <span id="coordinates">[0,0]</span></div>
+			<!-- <button onclick="window.increment()">Increment</button> -->
+			<div class="field">
+				<canvas id="canvas" class="canvas"></canvas>
+				<div class="tools">
+					<button type="button" class="button">Undo</button>
+					<button type="button" class="button" id="clear">Clear</button>
+					<div
+						onclick="change_color(this)"
+						class="color-field"
+						style="background: red"
+					></div>
+					<div
+						onclick="change_color(this)"
+						class="color-field"
+						style="background: blue"
+					></div>
+					<div
+						onclick="change_color(this)"
+						class="color-field"
+						style="background: green"
+					></div>
+					<div
+						onclick="change_color(this)"
+						class="color-field"
+						style="background: yellow"
+					></div>
+					<input type="color" class="color-picker" />
+					<input type="range" min="1" max="100" class="pen-range" />
+				</div>
+				<h2>Generating Input Params Matrix</h2>
+				<p id="matrix" class="matrix">000</p>
 			</div>
 		</div>
 	</body>
