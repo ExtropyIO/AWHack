@@ -1,5 +1,6 @@
 import { mount as mountDevTools } from '@latticexyz/dev-tools';
 import { setup } from './mud/setup';
+// import { * as fs } from '@npmcli/fs';
 
 import { DrawingApp } from '../canvas';
 
@@ -36,5 +37,18 @@ components.Matrix.update$.subscribe((update: { value: [any, any] }) => {
 };
 
 const drawPad = new DrawingApp(addPoint);
+
+(window as any).downloadMatrix = async () => {
+	console.log('Download ezkl input file');
+
+	console.log(drawPad.matrixOutput);
+	async function openFile() {
+		try {
+			await fs.writeFile('ezkl_input.json', drawPad.matrixOutput);
+		} catch (error) {
+			console.error(`Got an error trying to write to a file`);
+		}
+	}
+};
 
 mountDevTools();
