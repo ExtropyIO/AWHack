@@ -10,4 +10,6 @@ After create table run:
 pnpm mud tablegen
 ```
 
+Autonomous Learning.
+
 ![](./imgs/screenshot.png)
