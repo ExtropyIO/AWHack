@@ -6,14 +6,13 @@ export default mudConfig({
       keySchema: {},
       schema: "uint32",
     },
-    Dog: {
+    Matrix: {
       keySchema: {
-        dogId: "bytes32",
+        matrixId: "bytes32",
       },
       schema: {
-        owner: "address",
-        name: "string",
-        color: "string",
+        x: "uint32",
+        y: "uint32",
       },
     },
   },

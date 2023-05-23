@@ -1,17 +1,21 @@
-class DrawingApp {
+export class DrawingApp {
 	private canvas: HTMLCanvasElement;
 	private context: CanvasRenderingContext2D;
 	private paint: boolean;
+	private addPoint: (x: number, y: number) => void;
 
 	private clickX: number[] = [];
 	private clickY: number[] = [];
 	private clickDrag: boolean[] = [];
 
-	constructor() {
+	constructor(addPoint: (x: number, y: number) => void) {
 		let canvas = document.getElementById('canvas') as HTMLCanvasElement;
 		let context = canvas.getContext('2d');
+
 		canvas.height = 280;
 		canvas.width = 280;
+
+		this.addPoint = addPoint;
 
 		this.context = context;
 		this.canvas = canvas;
@@ -26,8 +30,9 @@ class DrawingApp {
 		function sleep(ms = 0) {
 			return new Promise((resolve) => setTimeout(resolve, ms));
 		}
+
 		async function updateAll() {
-			console.log('game is running');
+			console.log('game is syncing');
 			await sleep(1000);
 			window.requestAnimationFrame(updateAll);
 		}
@@ -37,19 +42,7 @@ class DrawingApp {
 		};
 
 		function array28() {
-			let array = [];
-
-			for (let i = 0; i < 28; i++) {
-				for (let j = 0; j < 28; j++) {
-					let index = ((j * (j * i)) % 28) + i;
-					if (i % 2 === 0) {
-						array[index] = 1;
-					} else {
-						array[index] = 0;
-					}
-				}
-			}
-			return array;
+			return Array(28).fill(0);
 		}
 
 		const tileW = 10;
@@ -58,8 +51,7 @@ class DrawingApp {
 		const gridRows = 28;
 		const gridCols = 28;
 
-		// let map = array28().map(array28);
-		let map = array28();
+		let map = array28().map(array28);
 
 		console.log(map);
 
@@ -156,12 +148,11 @@ class DrawingApp {
 		mouseY -= this.canvas.offsetTop;
 		if (this.paint) {
 			this.addClick(mouseX, mouseY, true);
-			console.log([Math.floor(mouseX / 10), Math.floor(mouseY / 10)]);
+			this.addPoint(Math.floor(mouseX / 10), Math.floor(mouseY / 10));
+
 			this.redraw();
 		}
 
 		e.preventDefault();
 	};
 }
-
-new DrawingApp();

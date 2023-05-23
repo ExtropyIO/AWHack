@@ -4,11 +4,12 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./styles.css" />
-		<title>a minimal MUD client</title>
+		<title>AWHack Matrix</title>
 	</head>
 	<body>
 		<script type="module" src="/src/index.ts"></script>
-		<div>Autonomous Pad <span id="counter">0</span></div>
+		<div>Pad <span id="counter">0</span></div>
+		<div>Total Matrix Points <span id="coordinates">[0,0]</span></div>
 		<button onclick="window.increment()">Increment</button>
 		<div class="field">
 			<canvas id="canvas" class="canvas"></canvas>
@@ -40,9 +41,5 @@
 				<input type="range" min="1" max="100" class="pen-range" />
 			</div>
 		</div>
-
-		<!-- <script src="./main.js"></script> -->
-		<!-- <script src="./canvasRead.ts"></script> -->
-		<script src="./canvas.ts"></script>
 	</body>
 </html>

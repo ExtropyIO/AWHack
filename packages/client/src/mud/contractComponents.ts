@@ -20,14 +20,13 @@ export function defineContractComponents(world: World) {
         }
       );
     })(),
-    Dog: (() => {
-      const tableId = new TableId("", "Dog");
+    Matrix: (() => {
+      const tableId = new TableId("", "Matrix");
       return defineComponent(
         world,
         {
-          owner: RecsType.String,
-          name: RecsType.String,
-          color: RecsType.String,
+          x: RecsType.Number,
+          y: RecsType.Number,
         },
         {
           metadata: {

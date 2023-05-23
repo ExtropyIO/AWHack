@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "forge-std/Test.sol";
 import { MudV2Test } from "@latticexyz/std-contracts/src/test/MudV2Test.t.sol";
 import { IWorld } from "../src/codegen/world/IWorld.sol";
-import { Dog } from "../src/codegen/Tables.sol";
+import { Matrix } from "../src/codegen/Tables.sol";
 
 contract MySystemTest is MudV2Test {
   IWorld world;
@@ -23,12 +23,12 @@ contract MySystemTest is MudV2Test {
     assertTrue(codeSize > 0);
   }
 
-  function testAddEntry() public {
-    bytes32 key = world.addEntry("bob", "blue");
+  function testAddPoint() public {
+    bytes32 key = world.addPoint(28, 28);
 
-    string memory name = Dog.getName(world, key);
-    string memory color = Dog.getColor(world, key);
-    assertEq(name, "bob");
-    assertEq(color, "blue");
+    uint32 x = Matrix.getX(world, key);
+    uint32 y = Matrix.getY(world, key);
+    assertEq(x, 28);
+    assertEq(y, 28);
   }
 }
