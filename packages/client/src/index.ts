@@ -1,6 +1,6 @@
 import { mount as mountDevTools } from '@latticexyz/dev-tools';
 import { setup } from './mud/setup';
-import { fs } from '@npmcli/fs';
+// import { * as fs } from '@npmcli/fs';
 
 import { DrawingApp } from '../canvas';
 
