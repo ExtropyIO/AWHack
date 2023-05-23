@@ -13,23 +13,17 @@ body {
 
 .canvas {
 	border: 1px solid black;
-	height: 400px;
-	width: 400px;
+	height: 280px;
+	width: 280px;
 	padding: 2px;
 }
+
 .field {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin: 10px;
-}
-
-.canvas {
-	border: 1px solid black;
-	height: 400px;
-	width: 400px;
-	padding: 2px;
 }
 
 .button {

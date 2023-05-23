@@ -10,10 +10,10 @@ class DrawingApp {
 	constructor() {
 		let canvas = document.getElementById('canvas') as HTMLCanvasElement;
 		let context = canvas.getContext('2d');
-		// context.lineCap = 'round';
-		// context.lineJoin = 'round';
-		// context.strokeStyle = 'black';
-		// context.lineWidth = 1;
+		context.lineCap = 'round';
+		context.lineJoin = 'round';
+		context.strokeStyle = 'black';
+		context.lineWidth = 10;
 
 		this.canvas = canvas;
 		this.context = context;

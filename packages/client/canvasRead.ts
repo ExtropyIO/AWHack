@@ -1,6 +1,6 @@
 const canvas = document.getElementById('canvas');
-canvas.width = window.innerWidth / 2;
-canvas.height = window.innerWidth / 2;
+canvas.width = 280;
+canvas.height = 280;
 
 const ctx = canvas.getContext('2d');
 
@@ -42,36 +42,6 @@ const drawMap = (ctx) => {
 };
 
 console.log(map);
-
-window.addEventListener('load', () => {
-	let drawing = false;
-	function startPostion(e) {
-		drawing = true;
-		draw(e);
-	}
-	function finishPostion(e) {
-		drawing = false;
-		ctx.beginPath();
-	}
-
-	function draw(e) {
-		if (!drawing) {
-			return;
-		}
-		ctx.lineWidth = 5;
-		ctx.linecap = 'round';
-
-		ctx.lineTo(e.clientX, e.clientY);
-		ctx.stroke();
-		ctx.beginPath();
-		ctx.moveTo(e.clientX, e.clientY);
-	}
-
-	// events
-	canvas.addEventListener('mousedown', startPostion);
-	canvas.addEventListener('mouseup', finishPostion);
-	canvas.addEventListener('mousemove', draw);
-});
 
 function createGrid() {
 	// small squares
