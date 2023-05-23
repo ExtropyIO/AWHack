@@ -42,7 +42,7 @@ body {
 }
 
 .matrix {
-	width: 400px;
+	width: 600px;
 	/* display: flex; */
 	word-wrap: break-word;
 	z-index: 2;
@@ -73,7 +73,11 @@ body {
 
 .ezkl {
 	width: 100px;
-	height: 40px;
+}
+
+#upload-form {
+	display: flex;
+	flex-direction: column;
 }
 
 @property --timer {

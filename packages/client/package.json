@@ -24,10 +24,15 @@
     "@npmcli/fs": "^3.1.0",
     "@wagmi/chains": "^0.2.22",
     "contracts": "workspace:*",
-    "ethers": "^5.7.2"
+    "dotenv": "^16.0.3",
+    "ethers": "^5.7.2",
+    "web3.storage": "^4.5.4"
   },
   "devDependencies": {
+    "static-server": "2.2.1",
     "vite": "^4.2.1",
-    "wait-port": "^1.0.4"
+    "wait-port": "^1.0.4",
+    "webpack": "5.47.1",
+    "webpack-cli": "^5.1.1"
   }
 }

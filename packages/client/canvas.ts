@@ -1,3 +1,7 @@
+import { Web3Storage } from 'web3.storage';
+// import * as dotenv from 'dotenv';
+// dotenv.config();
+
 export class DrawingApp {
 	private canvas: HTMLCanvasElement;
 	private context: CanvasRenderingContext2D;
@@ -114,8 +118,19 @@ export class DrawingApp {
 		this.clearCanvas();
 	};
 
-	private releaseEventHandler = () => {
-		let dataURL = this.canvas.toDataURL();
+	private releaseEventHandler = async () => {
+		// @ts-ignore
+		let dataURL = this.canvas.toDataURL('img/png');
+		function capture_image() {
+			var image = new Image();
+			image.src = dataURL;
+			var a = document.getElementById('save');
+			a.href = image.src;
+		}
+
+		capture_image();
+		// const client = new Web3Storage({ token: process.env.API_TOKEN });
+		// const rootCid = await client.put(dataURL);
 		this.imageData = dataURL;
 		console.log(this.imageData);
 		this.paint = false;

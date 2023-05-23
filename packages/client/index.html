@@ -87,12 +87,35 @@
 					<input type="color" class="color-picker" />
 					<input type="range" min="1" max="100" class="pen-range" />
 				</div>
+				<a href="" id="save" download>save</a>
+				<!-- web3 storage upload option -->
+				<p>Upload to web3.storage</p>
+				<form id="upload-form">
+					<label for="token">Paste your web3.storage API token here</label>
+					<input type="password" id="token" required />
+					<label>Pick files to store</label>
+					<input
+						type="file"
+						id="filepicker"
+						name="fileList"
+						multiple
+						required
+					/>
+					<input type="button" value="Submit" id="submit" />
+				</form>
+				<div id="output"></div>
+				<!-- matrix grid -->
 				<h2>Generating Input Params Matrix</h2>
-				<button onclick="window.downloadMatrix()" class="ezkl">
-					Learn with ezkl
-				</button>
+				<div class="actions">
+					<button onclick="window.downloadMatrix()" class="ezkl">
+						Learn with ezkl
+					</button>
+				</div>
 				<p id="matrix" class="matrix">000</p>
 			</div>
 		</div>
+
+		<script src="./web3storage.js"></script>
+		<script src="/main.bundle.js"></script>
 	</body>
 </html>
