@@ -6,7 +6,7 @@ import { MudV2Test } from "@latticexyz/std-contracts/src/test/MudV2Test.t.sol";
 import { IWorld } from "../src/codegen/world/IWorld.sol";
 import { Matrix } from "../src/codegen/Tables.sol";
 
-contract MySystemTest is MudV2Test {
+contract MyMatrixTest is MudV2Test {
   IWorld world;
 
   function setUp() public override {

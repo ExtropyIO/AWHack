@@ -9,19 +9,19 @@ const {
 } = await setup();
 
 // Components expose a stream that triggers when the component is updated.
-components.Counter.update$.subscribe((update) => {
-	const [nextValue, prevValue] = update.value;
-	console.log('Counter updated', update, { nextValue, prevValue });
-	document.getElementById('counter')!.innerHTML = String(
-		nextValue?.value ?? 'unset'
-	);
-});
+// components.Counter.update$.subscribe((update) => {
+// 	const [nextValue, prevValue] = update.value;
+// 	console.log('Counter updated', update, { nextValue, prevValue });
+// 	document.getElementById('counter')!.innerHTML = String(
+// 		nextValue?.value ?? 'unset'
+// 	);
+// });
 
 components.Matrix.update$.subscribe((update: { value: [any, any] }) => {
 	const [nextValue, prevValue] = update.value;
 	console.log('Position updated', update, { nextValue, prevValue });
 	document.getElementById('coordinates')!.innerHTML = String(
-		(nextValue?.x && nextValue?.y) ?? +'unset'
+		[nextValue.x, nextValue.y] ?? +'unset'
 	);
 });
 
