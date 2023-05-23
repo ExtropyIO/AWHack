@@ -1,0 +1,53 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.canvas {
+	border: 1px solid black;
+	/* background: black; */
+	/* height: 280px;
+	width: 280px; */
+	padding: 2px;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 10px;
+}
+
+.button {
+	height: 20px;
+	width: 50px;
+	cursor: pointer;
+}
+
+.tools {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	padding: 10px 0;
+}
+
+.color-field {
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.color-picker {
+	width: 40px;
+	height: 40px;
+}
