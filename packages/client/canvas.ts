@@ -152,7 +152,8 @@ export class DrawingApp {
 		if (this.paint) {
 			this.addClick(mouseX, mouseY, true);
 			this.addPoint(Math.floor(mouseX / 10), Math.floor(mouseY / 10));
-			this.matrixOutput[Math.floor(mouseX / 10)][Math.floor(mouseY / 10)] += 1;
+			this.matrixOutput[Math.floor(mouseX / 10)][Math.floor(mouseY / 10)] +=
+				1 / 28;
 			this.output.innerHTML = String(this.matrixOutput);
 			console.log(this.matrixOutput);
 			this.redraw();

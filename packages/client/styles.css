@@ -71,6 +71,11 @@ body {
 	background: white;
 }
 
+.ezkl {
+	width: 100px;
+	height: 40px;
+}
+
 @property --timer {
 	syntax: '<integer>';
 	inherits: false;

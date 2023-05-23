@@ -37,4 +37,9 @@ components.Matrix.update$.subscribe((update: { value: [any, any] }) => {
 
 const drawPad = new DrawingApp(addPoint);
 
+(window as any).downloadMatrix = async () => {
+	console.log('Download ezkl input file');
+	console.log(drawPad.matrixOutput);
+};
+
 mountDevTools();
