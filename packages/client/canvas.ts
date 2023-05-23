@@ -3,6 +3,8 @@ export class DrawingApp {
 	private context: CanvasRenderingContext2D;
 	private paint: boolean;
 	private addPoint: (x: number, y: number) => void;
+	public imageData: string;
+	public matrixOutput: Array<Array<number>>;
 
 	private clickX: number[] = [];
 	private clickY: number[] = [];
@@ -11,7 +13,6 @@ export class DrawingApp {
 	constructor(addPoint: (x: number, y: number) => void) {
 		let canvas = document.getElementById('canvas') as HTMLCanvasElement;
 		let context = canvas.getContext('2d');
-
 		canvas.height = 280;
 		canvas.width = 280;
 
@@ -45,15 +46,8 @@ export class DrawingApp {
 			return Array(28).fill(0);
 		}
 
-		const tileW = 10;
-		const tileH = 10;
-
-		const gridRows = 28;
-		const gridCols = 28;
-
 		let map = array28().map(array28);
-
-		console.log(map);
+		this.matrixOutput = map;
 
 		this.redraw();
 		this.createUserEvents();
@@ -65,7 +59,6 @@ export class DrawingApp {
 		canvas.addEventListener('mousemove', this.dragEventHandler);
 		canvas.addEventListener('mouseup', this.releaseEventHandler);
 		canvas.addEventListener('mouseout', this.cancelEventHandler);
-
 		canvas.addEventListener('touchstart', this.pressEventHandler);
 		canvas.addEventListener('touchmove', this.dragEventHandler);
 		canvas.addEventListener('touchend', this.releaseEventHandler);
@@ -115,6 +108,9 @@ export class DrawingApp {
 	};
 
 	private releaseEventHandler = () => {
+		let dataURL = this.canvas.toDataURL();
+		this.imageData = dataURL;
+		console.log(this.imageData);
 		this.paint = false;
 		this.redraw();
 	};
@@ -149,7 +145,9 @@ export class DrawingApp {
 		if (this.paint) {
 			this.addClick(mouseX, mouseY, true);
 			this.addPoint(Math.floor(mouseX / 10), Math.floor(mouseY / 10));
-
+			this.matrixOutput[Math.floor(mouseX / 10)][Math.floor(mouseY / 10)] =
+				(mouseX / 10 + mouseY / 10) ** -1;
+			console.log(this.matrixOutput);
 			this.redraw();
 		}
 
